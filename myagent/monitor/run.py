@@ -190,7 +190,7 @@ def render(data: dict) -> str:
 def send_mail(body: str) -> bool:
     user = os.environ.get("SMTP_USER")
     pw = os.environ.get("SMTP_PASS")
-    to = os.environ.get("MAIL_TO", user)
+    to = os.environ.get("MAIL_TO") or user
 
     if not user or not pw:
         print("\nSMTP_USER / SMTP_PASS 환경변수가 없습니다.")
